@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 
-export default function PlayerList({ playerList, scoreTotalArray, setEditPlayerModalVisible, editPlayerModalVisible }) {
+export default function PlayerList({ setSelectedPlayer, playerList, scoreTotalArray, setEditPlayerModalVisible, editPlayerModalVisible }) {
   return (
     <View style={styles.playerList}>
       {playerList.map((playerName, playerIndex) => (
@@ -9,6 +9,7 @@ export default function PlayerList({ playerList, scoreTotalArray, setEditPlayerM
         onPress={
           ()=>{
             setEditPlayerModalVisible(!editPlayerModalVisible);
+            setSelectedPlayer(playerIndex);
           }
         }
         style={styles.playerInfoCon} key={playerName}>
@@ -40,5 +41,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor: '#F5F3E7',
+    borderWidth: 1,
+    borderRadius: 15,
+    padding: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 });

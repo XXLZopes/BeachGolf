@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Pressable,
 } from "react-native";
 
 export default function ScoreCard({
@@ -15,6 +16,9 @@ export default function ScoreCard({
   scoreModalVisible,
   setScoreModalVisible,
   scoreTotalArray,
+  editPlayerModalVisible,
+  setEditPlayerModalVisible,
+  setSelectedPlayer
 }) {
   const skipHole = 10;
   let holes = 18;
@@ -26,12 +30,21 @@ export default function ScoreCard({
       {/* Header Row */}
       <View style={styles.row}>
         <View style={styles.headerCell}>
-          <Text>Hole</Text>
+          <Text style={styles.headerCellText}>Hole</Text>
         </View>
         {[...Array(playerTotal)].map((_, playerIndex) => (
-          <View key={playerIndex} style={styles.headerCell}>
-            <Text>{playerList[playerIndex]}</Text>
-          </View>
+          <Pressable
+          onPress={
+            ()=>{
+              setEditPlayerModalVisible(!editPlayerModalVisible);
+              setSelectedPlayer(playerIndex);
+            }
+          } 
+          
+          key={playerIndex} style={styles.headerCell}
+          >
+            <Text style={styles.headerCellText}>{playerList[playerIndex]}</Text>
+          </Pressable>
         ))}
       </View>
 
@@ -80,15 +93,16 @@ export default function ScoreCard({
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
 
-const scoreCardWidth = deviceWidth - 20;
+const scoreCardWidth = deviceWidth - 20 + 2;
 const maxScoreCardHeight = deviceHeight - 200;
 
 const styles = StyleSheet.create({
   outerContainer: {
-    marginTop: '5%',
+    // marginTop: '5%',
     width: scoreCardWidth,
     borderWidth: 1,
-    backgroundColor: "rgb(255,255,230)",
+    borderColor: '#00856A',
+    backgroundColor: "#CDDAD5",
   },
   table: {
     width: scoreCardWidth,
@@ -98,23 +112,27 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
   },
+  headerCellText: {
+    fontWeight: 'bold',
+    color: '#004C46',
+  },
   headerCell: {
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#00856A",
     paddingTop: 10,
     paddingBottom: 10,
     alignItems: "center",
     justifyContent: "center",
-    width: (scoreCardWidth) / 5, // or any desired width
-    backgroundColor: "#f2f2f2",
+    width: ((scoreCardWidth) / 5) - 2/5, // or any desired width
+    backgroundColor: "#98B8AD",
   },
   cell: {
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#00856A",
     alignItems: "center",
     justifyContent: "center",
-    width: (scoreCardWidth) / 5, // or any desired width
-    backgroundColor: "white",
+    width: ((scoreCardWidth) / 5) - 2/5, // or any desired width
+    backgroundColor: "#F5F3E7",
   },
   input: {
     width: "100%",

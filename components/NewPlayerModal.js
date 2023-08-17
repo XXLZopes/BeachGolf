@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   modalView: {
     width: '95%',
     margin: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#F5F3E7',
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
@@ -91,19 +91,19 @@ const styles = StyleSheet.create({
   },
 
   buttonCancel: {
-    backgroundColor: '#FF564B',
+    backgroundColor: '#bb4130',
 },
 // buttonSave: {
 //     backgroundColor: '#4B87FF',
 // },
   buttonSave: {
-    backgroundColor: 'blue',
+    backgroundColor: '#2e7194',
   },
   // buttonCancel: {
   //   backgroundColor: 'red',
   // },
   textStyle: {
-    color: 'white',
+    color: '#F5F3E7',
     fontWeight: 'bold',
     textAlign: 'center',
   },
