@@ -9,6 +9,9 @@ import PlayerList from "./components/PlayerList";
 import ScoreCard from "./components/ScoreCard";
 
 export default function App() {
+  const [editPlayerModalVisible, setEditPlayerModalVisible] = useState(false);
+
+
   const [modalVisible, setModalVisible] = useState(false);
   const [scoreModalVisible, setScoreModalVisible] = useState(false);
   const [newPlayer, setNewPlayer] = useState("");
@@ -56,6 +59,16 @@ export default function App() {
       <NewPlayerModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
+        newPlayer={newPlayer}
+        setNewPlayer={setNewPlayer}
+        playerList={playerList}
+        setPlayerList={setPlayerList}
+        scoreTotalArray={scoreTotalArray}
+        setScoreTotalArray={setScoreTotalArray}
+      ></NewPlayerModal>
+            <NewPlayerModal
+        editPlayerModalVisible={editPlayerModalVisible}
+        setEditPlayerModalVisible={setEditPlayerModalVisible}
         newPlayer={newPlayer}
         setNewPlayer={setNewPlayer}
         playerList={playerList}

@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Pressable } from "react-native";
 
-export default function PlayerList({ playerList, scoreTotalArray }) {
+export default function PlayerList({ playerList, scoreTotalArray, setEditPlayerModalVisible, editPlayerModalVisible }) {
   return (
     <View style={styles.playerList}>
       {playerList.map((playerName, playerIndex) => (
-        <View style={styles.playerInfoCon} key={playerName}>
+        <Pressable 
+        onPress={
+          ()=>{
+            setEditPlayerModalVisible(!editPlayerModalVisible);
+          }
+        }
+        style={styles.playerInfoCon} key={playerName}>
           <Text>{playerName}</Text>
           <Text>
             {scoreTotalArray[playerIndex]
@@ -15,7 +21,7 @@ export default function PlayerList({ playerList, scoreTotalArray }) {
                 )
               : 0}
           </Text>
-        </View>
+        </Pressable>
       ))}
     </View>
   );
