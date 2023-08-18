@@ -114,15 +114,15 @@ export default function EditPlayerModal({
                       ...playerList.slice(0, selectedPlayer),
                       ...playerList.slice(selectedPlayer + 1),
                     ]);
-                    scoreTotalArray
+                    scoreTotalArray[0]
                       ? setScoreTotalArray([
                           ...scoreTotalArray.slice(0, selectedPlayer),
                           ...scoreTotalArray.slice(selectedPlayer + 1),
                         ])
                       : console.log('Score array empty');
-                    scoreTotalArray
-                      ? setScoreTotalArray(scoreTotalArray.slice(0, -1))
-                      : console.log('Score array empty');
+                    // scoreTotalArray
+                    //   ? setScoreTotalArray(scoreTotalArray.slice(0, -1))
+                    //   : console.log('Score array empty');
                     // console.log(scoreTotalArray)
                     setEditPlayerModalVisible(!editPlayerModalVisible);
                     setEditPlayerState(0);
