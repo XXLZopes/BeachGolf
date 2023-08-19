@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Text, StyleSheet, View, Dimensions, Alert } from 'react-native'; 
+import theme from '../assets/theme'; 
 
 export default function PlayerButton({setModalVisible, playerList, setPlayerList, scoreTotalArray, setScoreTotalArray}) {
     return (
@@ -13,7 +14,7 @@ export default function PlayerButton({setModalVisible, playerList, setPlayerList
                     : Alert.alert('Upgrade to premium to increase player count.');
                 }}
             >
-                <Text style={styles.addButtonText}>Add Player</Text>
+                <Text style={styles.addButtonText}>Add Golfer</Text>
             </TouchableOpacity>
         </View>
     );
@@ -24,26 +25,25 @@ const styles = StyleSheet.create({
         width: deviceWidth - 20 + 2,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingTop: '3%'
+        marginTop: 10
+        // paddingTop: '3%'
+        // marginBottom: '30%'
     },
     button: {
         flex: 1,
         borderWidth: 1,
-        borderColor: '#F2A900',
-        padding: 10,
+        borderColor: theme.colors.secondary,
+        padding: 20,
         // margin: 5,
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    removeButton: {
-        backgroundColor: '#FF564B',
-    },
     addButton: {
-        backgroundColor: '#FFC72C',
+        backgroundColor: theme.colors.accent,
     },
     addButtonText: {
-        color: '#004C46',
+        color: theme.colors.lightest,
         fontWeight: 'bold',
     },
 });

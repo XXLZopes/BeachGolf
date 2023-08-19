@@ -17,7 +17,7 @@ export default function NewPlayerModal({modalVisible, setModalVisible, newPlayer
             <TextInput
             onChangeText={playerName => setNewPlayer(playerName)}
             style={styles.inputField}
-                placeholder="Player name"
+                placeholder="Golfer name"
                 placeholderTextColor="gray"
             />
             <View style={styles.buttonContainer}>
